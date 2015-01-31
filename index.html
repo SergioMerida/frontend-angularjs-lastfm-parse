@@ -13,9 +13,9 @@
     <script src="bower_components/parse/parse.min.js"></script> 
   </head>
 
-  <body>
-    <div class="container-full">
-      <div id="carousel" class="carousel slide container" data-ride="carousel">
+  <body ng-app="AuthApp">
+    <div class="container firstContainer" ng-hide="currentUser">
+      <div id="carousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
         <li data-target="#carousel" data-slide-to="0" class="active"></li>
@@ -26,16 +26,16 @@
       <!-- Wrapper for slides -->
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <img src="sketch/hardwell-01.png">
+          <img src="sketch/hardwell-01.png" class="img-responsive" >
           <div class="carousel-caption">
-            <img src="sketch/last_fm_logo.png" pull-left>
+            <img src="sketch/last_fm_logo.png" pull-right>
           </div>
         </div><!--Close of item active-->
         <div class="item">
-          <img src="sketch/shakira-01.png">
+          <img src="sketch/shakira-01.png" class="img-responsive">
         </div><!--Close of second item-->
         <div class="item">
-          <img src="sketch/u2-01.png">
+          <img src="sketch/u2-01.png" class="img-responsive">
         </div><!--Close of third item-->
       </div><!--Close of wrapper for slides-->
 
@@ -51,30 +51,57 @@
      </div>
     </div><!--First Container-->
 
-    <div class="container-full secondContainer" ng-app="AuthApp">
-     <div ng-hide="currentUser">
-      <form ng-show="scenario == 'Sign up'">
-       <h2>Sign up</h2>
-       Email: <input type="email" ng-model="user.email" /><br />
-       Username: <input type="text" ng-model="user.username" /><br />
-       Password: <input type="password" ng-model="user.password" /><br />
-       <button ng-click="signUp(user)">Sign up</button>
-       or <a href="#" ng-click='scenario="Log in"'>Log in</a>
-      </form>
+    <div class="container secondContainer">
+     <div class="row">
+      <div class="col-md-3 col-xs-3"></div>
+      <div class="col-md-6 col-xs-6">
+       <div ng-hide="currentUser">
+        <!--Form for Sign Up-->
+        <form class="form-horizontal" ng-show="scenario == 'Sign up'">
+         <h2>Sign up</h2>
+          <div class="form-group">
+           Email: <input type="email" ng-model="user.email" class="form-control" placeholder="Email">
+          </div><!--Close of first form-group-->
+          <div class="form-group">
+           Username: <input type="text" ng-model="user.username" class="form-control" placeholder="Username">
+          </div><!--Close of second form-group-->
+          <div class="form-group"> 
+           Password: <input type="password" ng-model="user.password" class="form-control" placeholder="Password">
+          </div><!--Close of third form-group-->
+          <div class="form-group">
+           <button ng-click="signUp(user)" class="btn pull-right">Sign up!!</button>
+          </div><!--Close of fourth form-group--> 
+          <hr>
+          <h4>Already have an account?
+          <a href="#" ng-click='scenario="Log in"'>Log in</a>
+          </h4>
+        </form><!--Close of signUp form-->
     
-      <form ng-show="scenario == 'Log in'">
-       <h2>Log in</h2>
-       Username: <input type="text" ng-model="user.username" /><br />
-       Password: <input type="password" ng-model="user.password" /><br />
-       <button ng-click="logIn(user)">Log in</button>
-       or <a href="#" ng-click='scenario="Sign up"'>Sign up</a>
-      </form>
-     </div>
-  
+        <form class="form-horizontal" ng-show="scenario == 'Log in'">
+         <h2>Log in</h2>
+          <div class="form-group">
+           Username: <input type="text" ng-model="user.username" class="form-control" placeholder="Username">
+          </div><!--Close of first from group second form-->
+          <div class="form-group">
+           Password: <input type="password" ng-model="user.password" class="form-control" placeholder="Password">
+          </div><!--Close of second form group second form-->
+          <div class="form-group"> 
+           <button ng-click="logIn(user)" class="btn pull-right">Log in</button>
+          </div><!--Close of third form group second form-->
+          <hr> 
+           <h4>Don't have an account yet?
+            <a href="#" ng-click='scenario="Sign up"'>Sign up</a>
+           </h4>
+        </form><!--Close of LogIn form-->
+       </div><!--ng-hide CurrentUser-->
+    
      <div ng-show="currentUser">
       <h1>Welcome {{currentUser.get('username')}}</h1>
       <p> You have been successfully logged in</p>
       <button ng-click="logOut(user)">Log out</button>
+     </div>
+     </div>
+      <div class="col-md-3 col-xs-3"></div>
      </div>
     </div><!--Second container-->
 

@@ -1,8 +1,20 @@
 body {
 	background-color: black;
+	color: white;
+	font-size: 15px;
 }
 
+.container {
+	width:100%;
+}
 .secondContainer {
-	background-color: #ED1B24;
+	background-color:#ED1B24;
 }
 
+.form-group {
+	margin-top: 2%;
+}
+
+.btn {
+	background-color:black;
+}

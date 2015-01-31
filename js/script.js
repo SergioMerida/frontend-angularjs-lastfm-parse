@@ -1,6 +1,6 @@
-Parse.initialize("YJwHjwYF08scjC2SEdl9Ve2YFB3056FQfkUgGu8p", "awDPDR2YNfZNtbJ54VzEZPiWJZmLekU8qkJxnlOw");
+Parse.initialize("o738tDIjX7Oq1jSB1PtSG6LfVeZqOgpaKH0pK3dt", "p7JfKdqPlYwWoenFcH1pnxR73YDzNaHAjz6iAwhq");
 
-angular.module('AuthApp', [])
+var AuthApp = angular.module('AuthApp', [])
 
   .run(['$rootScope', function($scope) {
     $scope.scenario = 'Sign up';
@@ -40,3 +40,4 @@ angular.module('AuthApp', [])
       $scope.currentUser = null;
     };
   }]);
+
