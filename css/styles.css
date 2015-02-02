@@ -3,6 +3,10 @@ body {
 	font-size: 15px;
 }
 
+.btn {
+	color: #2E2E2E;
+}
+
 .container {
 	width:100%;
 }
@@ -14,6 +18,11 @@ body {
 	margin-top: 2%;
 }
 
-.btn {
-	background-color:black;
+.navbar{
+	border: none;
+	color: black;
 }
+.container-fluid{
+	background-color: #ED1B24;
+}
+

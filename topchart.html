@@ -1,52 +1,57 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a href="#/">
-	   <img src="sketch/last_fm_logo.png" alt="brand" width="150px">
-	  </a><!--Logo of LastFm-->
-    </div><!--Close of navHeader -->
+   <!-- Brand and toggle get grouped for better mobile display -->
+   <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+     <span class="sr-only">Toggle navigation</span>
+     <span class="icon-bar"></span>
+     <span class="icon-bar"></span>
+     <span class="icon-bar"></span>
+    </button>
+    <a href="#/">
+	 <img src="sketch/last_fm_logo.png" class="img-responsive" alt="brand" width="150px">
+	</a><!--Logo of LastFm-->
+   </div><!--Close of navHeader -->
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <p class="navbar-text navbar-right">Signed in as {{currentUser.get('username')}}</a></p>
-      <form class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" ng-model="search.$">
-        
-        </div>
-
-      </form><!---->
-      
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-<h4>Bienvenido <strong><u>{{currentUser.get('username')}}</u></strong></h4>
-					<button ng-click="logOut(user)" class="blackButton">Cerrar sesion</button>
+   <!-- Collect the nav links, forms, and other content for toggling -->
+   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <p class="navbar-text navbar-right">Signed in as {{currentUser.get('username')}}</p>
+    <form class="navbar-form navbar-left" role="search">
+     <div class="form-group">
+      <input type="text" class="form-control" placeholder="Search" ng-model="search.$">
+     </div><!--Close of form-group-->
+    </form><!--Close of form-->
+   <div class="btn-group navbar-right" role="group"> 
+	<button class="btn btn-danger dropdown-toggle navbar-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">Order By! <span class="caret"></span>
+	</button>
+	 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+	  <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="orderFilter('name')">Order by name</a></li>
+	  <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="orderFilter('artist.name')">Order by artist</a></li>
+	  <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="orderFilter('listeners')">Order by listeners</a></li>
+	 </ul>
+	 <button ng-click="logOut(user)" type="button" class="btn btn-danger navbar-btn ">Cerrar sesion</button>
+	</div><!--Btn-group-->
+   </div><!--navbar-collapse-->
+ </div><!-- /.container-fluid -->
+</nav><!--Close of navbar Top-->
+					
  <div ng-app="angularTesting">
   <div class="container">
    <div ng-controller="jsonData">
-	<div class="panel panel-default table-responsive">
+	<div class="panel panel-inverse table-responsive">
      <table class="table table-hover">
 	  <thead>
 	   <tr>
-		<th ng-click="reverse=!reverse;order('name', reverse)">Name</a></th>
-		<th ng-click="reverse=!reverse;order('artist.name', reverse)">Artist</th>
-		<th ng-click="reverse=!reverse;order('duration', reverse)">Duration</a></th>
-		<th ng-click="reverse=!reverse;order('playcount', reverse)">Playcounts</a></th>
-		<th ng-click="reverse=!reverse;order('listeners', reverse)">Number of listeners</a></th>
+		<th><span style="cursor: pointer" ng-click="orderFilter('name')">Name</span><span class="glyphicon glyphicon-chevron-down" style="cursor: pointer" ng-click="orderFilter('-name')"></span></th>
+		<th>Artist</th>
+		<th>Duration</th>
+		<th>Playcounts</th>
+		<th>Number of listeners</th>
 		<th>Image</th>
 	   </tr><!--Close of tr of thead-->
 	  </thead><!--Close of thead-->
 	  <tbody>
-	   <tr ng-repeat="playlist in playlists | filter:search:strict">
+	   <tr ng-repeat="playlist in playlists | orderBy:selectedOrder |filter:search:strict">
 		<td>{{playlist.name}}</td>
 		<td>{{playlist.artist.name}}</td>
 		<td>{{playlist.duration *1000| date: "mm:ss"}}</td>

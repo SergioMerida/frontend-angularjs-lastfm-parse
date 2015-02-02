@@ -69,8 +69,8 @@ angularTesting.controller('jsonData', function ($scope, $http) {
     $http.get('http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=85b8c37b1a6be5182a5ed0549c4a7400&format=json').success(function(data) {
       $scope.playlists = data.tracks.track;
     });
-    $scope.ordenarPor = function(orden) {
-      $scope.ordenSeleccionado = orden;
+    $scope.orderFilter = function(order) {
+      $scope.selectedOrder = order;
     };
 });
 
