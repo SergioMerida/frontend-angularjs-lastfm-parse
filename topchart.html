@@ -1,0 +1,63 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="#/">
+	   <img src="sketch/last_fm_logo.png" alt="brand" width="150px">
+	  </a><!--Logo of LastFm-->
+    </div><!--Close of navHeader -->
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <p class="navbar-text navbar-right">Signed in as {{currentUser.get('username')}}</a></p>
+      <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" ng-model="search.$">
+        
+        </div>
+
+      </form><!---->
+      
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<h4>Bienvenido <strong><u>{{currentUser.get('username')}}</u></strong></h4>
+					<button ng-click="logOut(user)" class="blackButton">Cerrar sesion</button>
+ <div ng-app="angularTesting">
+  <div class="container">
+   <div ng-controller="jsonData">
+	<div class="panel panel-default table-responsive">
+     <table class="table table-hover">
+	  <thead>
+	   <tr>
+		<th ng-click="reverse=!reverse;order('name', reverse)">Name</a></th>
+		<th ng-click="reverse=!reverse;order('artist.name', reverse)">Artist</th>
+		<th ng-click="reverse=!reverse;order('duration', reverse)">Duration</a></th>
+		<th ng-click="reverse=!reverse;order('playcount', reverse)">Playcounts</a></th>
+		<th ng-click="reverse=!reverse;order('listeners', reverse)">Number of listeners</a></th>
+		<th>Image</th>
+	   </tr><!--Close of tr of thead-->
+	  </thead><!--Close of thead-->
+	  <tbody>
+	   <tr ng-repeat="playlist in playlists | filter:search:strict">
+		<td>{{playlist.name}}</td>
+		<td>{{playlist.artist.name}}</td>
+		<td>{{playlist.duration *1000| date: "mm:ss"}}</td>
+		<td>{{playlist.playcount}}</td>
+		<td>{{playlist.listeners}}</td>
+		<td ng-show="{{playlist.image[1]}}"><img ng-src="{{playlist.image[1] | soloUrl}}"></td>
+		<td ng-show="!{{playlist.image[1]}}"><img src="images/índice.png" width="65px"></td>
+	   </tr>
+	  </tbody><!--Close of tbody-->
+	 </table><!--Close of table-->
+    </div><!--Close of panel-->
+   </div><!--jsonData controller-->
+  </div><!--Close of container-->
+ </div><!--ng-app close-->
