@@ -35,18 +35,20 @@
  </div><!-- /.container-fluid -->
 </nav><!--Close of navbar Top-->
 					
- <div ng-app="angularTesting">
+ <div ng-app="lastFm">
   <div class="container">
-   <div ng-controller="jsonData">
+   <div ng-controller="getData">
 	<div class="panel panel-inverse table-responsive">
      <table class="table table-hover">
 	  <thead>
 	   <tr>
 		<th><span style="cursor: pointer" ng-click="orderFilter('name')">Name</span><span class="glyphicon glyphicon-chevron-down" style="cursor: pointer" ng-click="orderFilter('-name')"></span></th>
-		<th>Artist</th>
-		<th>Duration</th>
-		<th>Playcounts</th>
-		<th>Number of listeners</th>
+
+		<th><span style="cursor: pointer" ng-click="orderFilter('artist.name')">Artist</span><span class="glyphicon glyphicon-chevron-down" style="cursor: pointer" ng-click="orderFilter('-artist.name')"></span></th>
+		
+		<th><span style="cursor: pointer" ng-click="orderFilter('duration')">Duration</span><span class="glyphicon glyphicon-chevron-down" style="cursor: pointer" ng-click="orderFilter('-duration')"></span></th>
+
+		<th><span style="cursor: pointer" ng-click="orderFilter('listeners')">Number of listeners</span><span class="glyphicon glyphicon-chevron-down" style="cursor: pointer" ng-click="orderFilter('-listeners')"></span></th>
 		<th>Image</th>
 	   </tr><!--Close of tr of thead-->
 	  </thead><!--Close of thead-->
@@ -55,7 +57,6 @@
 		<td>{{playlist.name}}</td>
 		<td>{{playlist.artist.name}}</td>
 		<td>{{playlist.duration *1000| date: "mm:ss"}}</td>
-		<td>{{playlist.playcount}}</td>
 		<td>{{playlist.listeners}}</td>
 		<td ng-show="{{playlist.image[1]}}"><img ng-src="{{playlist.image[1] | soloUrl}}"></td>
 		<td ng-show="!{{playlist.image[1]}}"><img src="images/índice.png" width="65px"></td>

@@ -1,13 +1,13 @@
 //Starting parse
 Parse.initialize("o738tDIjX7Oq1jSB1PtSG6LfVeZqOgpaKH0pK3dt", "p7JfKdqPlYwWoenFcH1pnxR73YDzNaHAjz6iAwhq");
 //Starting angular and setting routes
-var angularTesting = angular.module('angularTesting', ["ngRoute"]).config(function($routeProvider) {
+var lastFm = angular.module('lastFm', ["ngRoute"]).config(function($routeProvider) {
   $routeProvider
   .when('/', {
     templateUrl: 'log.html'
   })
   .when('/topchart', {
-    controller: 'jsonData',
+    controller: 'getData',
     templateUrl: 'topchart.html'
   })
   .otherwise({
@@ -56,15 +56,14 @@ var angularTesting = angular.module('angularTesting', ["ngRoute"]).config(functi
 
 
 //Getting only the url of music object
-angularTesting.filter("soloUrl", function(){
+lastFm.filter("soloUrl", function(){
   return function(item){
     return (JSON.stringify(item)).slice(10,-18);
   };
 });
-//Hidding message for forgot password
-angularTesting.forgotPass="False";
+
 //Getting json
-angularTesting.controller('jsonData', function ($scope, $http) {
+lastFm.controller('getData', function ($scope, $http) {
   
     $http.get('http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=85b8c37b1a6be5182a5ed0549c4a7400&format=json').success(function(data) {
       $scope.playlists = data.tracks.track;
