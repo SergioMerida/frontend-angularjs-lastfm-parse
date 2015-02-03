@@ -1,10 +1,11 @@
 body {
 	background-color: black;
 	font-size: 15px;
+	color:white;
 }
 
 .btn {
-	color: #2E2E2E;
+	background-color: black;
 }
 
 .container {
@@ -26,3 +27,14 @@ body {
 	background-color: #ED1B24;
 }
 
+.logoImg {
+	margin-top:2%;
+}
+
+.table{
+	color:black;
+}
+
+.logout {
+	margin-top: 1.2%;
+}

@@ -1,43 +1,42 @@
-<div class="container firstContainer">
-      <div id="carousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#carousel" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel" data-slide-to="1"></li>
-        <li data-target="#carousel" data-slide-to="2"></li>
-      </ol><!--Close of indicators-->
+    <div class="container firstContainer">
+     <div class="row">
+      <div class="col-md-2 col-xs-2"></div>
+      <div class="col-md-8 col-xs-8">
+       <div id="carousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#carousel" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel" data-slide-to="1"></li>
+          <li data-target="#carousel" data-slide-to="2"></li>
+        </ol><!--Close of indicators-->
 
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <img src="sketch/hardwell-01.png" class="img-responsive" >
-          <div class="carousel-caption">
-            <img src="sketch/last_fm_logo.png" pull-right>
-          </div>
-        </div><!--Close of item active-->
-        <div class="item">
-          <img src="sketch/shakira-01.png" class="img-responsive">
-        </div><!--Close of second item-->
-        <div class="item">
-          <img src="sketch/u2-01.png" class="img-responsive">
-        </div><!--Close of third item-->
-      </div><!--Close of wrapper for slides-->
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <img src="sketch/hardwell-01.png" class="img-responsive" >
+          </div><!--Close of item active-->
+          <div class="item">
+            <img src="sketch/shakira-01.png" class="img-responsive">
+          </div><!--Close of second item-->
+          <div class="item">
+            <img src="sketch/u2-01.png" class="img-responsive">
+          </div><!--Close of third item-->
+        </div><!--Close of wrapper for slides-->
 
-      <!-- Controls -->
-      <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-     </div>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel" role="button" data-slide="prev"></a>
+        <a class="right carousel-control" href="#carousel" role="button" data-slide="next"></a>
+       </div><!--Close of carousel-->
+      </div><!--Close of col-md-8-->
+      <div class="col-md-2 col-xs-2"></div>
+     </div><!--Close of row-->
     </div><!--First Container-->
 
     <div class="container secondContainer">
      <div class="row">
-      <div class="col-md-1 col-xs-1"></div>
+      <div class="col-md-2 col-xs-2">
+        <img src="sketch/last_fm_logo.png" class="logoImg" width="180px">
+      </div>
       <div class="col-md-4 col-xs-4" >
        <div ng-show="currentUser">
           <p>
@@ -63,7 +62,7 @@
               </div><!--Close of fourth form-group--> 
             </form><!--Close of signUp form-->     
       </div><!--Close of col-md-4--> 
-      <div class="col-md-2 col-xs-2"></div> 
+      <div class="col-md-1 col-xs-1"></div> 
       <div class="col-md-4 col-xs-4" ng-hide="currentUser">
         <!--Form to log In-->
             <form class="form-horizontal">
