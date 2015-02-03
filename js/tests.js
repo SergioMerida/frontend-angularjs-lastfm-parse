@@ -1,3 +1,27 @@
+describe('Test route config', function() {
+  beforeEach(module('lastFm'));
+ 
+  beforeEach(inject(function (_$route_, _$location_, _$rootScope_, _$httpBackend_) {
+        $route = _$route_;
+        $location = _$location_;
+        $rootScope = _$rootScope_;
+        $httpBackend = _$httpBackend_;
+
+        $httpBackend.when('GET', 'topchart.html').respond({});
+    }));
+
+it('/topchart should get topchart.html template and use getData Ctrl', inject(function($controller) {
+            $httpBackend.expectGET('topchart.html');
+
+            expect($route.current).toBeUndefined();
+            $location.path('/topchart');
+            $rootScope.$digest();
+
+            expect($route.current.loadedTemplateUrl).toBe('topchart.html');
+            expect($route.current.controller).toBe('getData');
+    }));
+});
+
 describe('lastFm module', function() {
   beforeEach(module('lastFm'));
 
