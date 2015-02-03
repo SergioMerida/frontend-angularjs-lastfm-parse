@@ -71,5 +71,12 @@ lastFm.controller('getData', function ($scope, $http) {
     $scope.orderFilter = function(order) {
       $scope.selectedOrder = order;
     };
+
+    $scope.filterTypes = [
+      {name: "All", search: "search.$"},
+      {name: "Song", search: "search.name"},
+      {name: "Artist", search: "search.artist.name"}
+    ];
+    $scope.selectedFilter = $scope.filterTypes[0];
 });
 
