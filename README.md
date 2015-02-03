@@ -19,6 +19,10 @@ sudo npm install
 ```{shell}
 sudo bower install
 ```
+5. You have to type in the console
+```{shell}
+bower update
+```
 
 These commands will install all the necessary libraries and frameworks including: AngularJS, Jasmine and
 Parse in a folder called **bower_components**.
